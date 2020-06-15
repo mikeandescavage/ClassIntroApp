@@ -1,0 +1,16 @@
+﻿[
+  {
+    "Statement": "I traveled around Japan for over two weeks.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "My favorite hockey team is the Philadelphia Flyers.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I can speak three languages fluently.",
+    "IsLie": true
+  }
+]
