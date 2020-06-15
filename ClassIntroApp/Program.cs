@@ -2,17 +2,21 @@
 namespace ClassIntroApp
 {
     using System;
+    using System.IO;
+    using System.Text.Json;
+    using System.Text.Json.Serialization;
 
     class Program
     {
         static void Main(string[] args)
         {
-            GameStatement statementOne = new GameStatement();
-            statementOne.Statement = "I traveled around Japan for over two weeks.";
-            statementOne.IsLie = false;
+            var jsonString = File.ReadAllText(".\\gamestatements.json");
+            var allStatements = JsonSerializer.Deserialize<GameStatement[]>(jsonString);
 
-
-            Console.WriteLine($"{statementOne.Statement}");
+            foreach (GameStatement statement in allStatements)
+            {
+                Console.WriteLine($"{statement.Statement}");
+            }
         }
     }
 }
