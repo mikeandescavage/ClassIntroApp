@@ -2,8 +2,7 @@
 namespace ClassIntroApp
 {
     using System;
-    using System.IO;
-    using System.Text.Json;
+
     using System.Threading;
 
     class Program
@@ -14,15 +13,7 @@ namespace ClassIntroApp
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            var jsonString = File.ReadAllText(".\\gamestatements.json");
-            var allStatements = JsonSerializer.Deserialize<GameStatement[]>(jsonString);
-
             ChoiceMenu();
-
-            foreach (GameStatement statement in allStatements)
-            {
-                Console.WriteLine($"{statement.Statement}");
-            }
         }
 
         /// <summary>
@@ -49,7 +40,7 @@ namespace ClassIntroApp
                     switch(choice)
                     {
                         case 1:
-                            Console.WriteLine("Going to play a game.");
+                            TruthsAndLies.StartGame();
                             break;
 
                         case 2:
