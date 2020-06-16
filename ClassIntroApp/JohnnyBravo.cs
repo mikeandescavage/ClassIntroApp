@@ -5,6 +5,8 @@ namespace ClassIntroApp
 
     public class JohnnyBravo
     {
+        #region Public Methods
+
         public static void DrawMe()
         {
             string asciiArt = @"
@@ -53,5 +55,7 @@ namespace ClassIntroApp
             Console.Write("Press any key to continue.");
             Console.ReadLine();
         }
+
+        #endregion
     }
 }

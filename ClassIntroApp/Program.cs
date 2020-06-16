@@ -15,9 +15,8 @@ namespace ClassIntroApp
             ChoiceMenu();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        #region Private Methods
+
         private static void ChoiceMenu()
         {
             bool returnToMenu = true;
@@ -47,7 +46,7 @@ namespace ClassIntroApp
                             break;
 
                         case 3:
-                            Console.WriteLine("Write Bio");
+                            BioWriter.WriteBio();
                             break;
 
                         case 4:
@@ -64,5 +63,7 @@ namespace ClassIntroApp
             } while (returnToMenu);
 
         }
+
+        #endregion
     }
 }

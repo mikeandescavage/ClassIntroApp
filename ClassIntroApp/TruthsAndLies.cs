@@ -8,9 +8,18 @@ namespace ClassIntroApp
 
     public class TruthsAndLies
     {
+        #region Private Members
+
         private static string _GameFileLocation { get; } = ".\\gamestatements.json";
         private static GameStatement[] _AllStatements { get; } = GetGameStatements();
 
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static void StartGame()
         {
             bool validEntry = false;
@@ -49,6 +58,10 @@ namespace ClassIntroApp
             } while (!validEntry);
 
         }
+
+        #endregion
+
+        #region Private Methods
 
         private static GameStatement[] GetGameStatements()
         {
@@ -98,5 +111,7 @@ namespace ClassIntroApp
 
             return false;
         }
+
+        #endregion
     }
 }

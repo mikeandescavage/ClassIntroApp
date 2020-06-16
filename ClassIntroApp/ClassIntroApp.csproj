@@ -6,6 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Update="bio.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="gamestatements.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
