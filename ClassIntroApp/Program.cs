@@ -18,7 +18,7 @@ namespace ClassIntroApp
         /// <summary>
         /// 
         /// </summary>
-        static void ChoiceMenu()
+        private static void ChoiceMenu()
         {
             bool returnToMenu = true;
 

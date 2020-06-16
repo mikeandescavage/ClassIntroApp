@@ -8,38 +8,29 @@ namespace ClassIntroApp
 
     public class TruthsAndLies
     {
-        private static string _GameFileLocation = ".\\gamestatements.json";
+        private static string _GameFileLocation { get; } = ".\\gamestatements.json";
+        private static GameStatement[] _AllStatements { get; } = GetGameStatements();
 
         public static void StartGame()
         {
-            var allStatements = GetGameStatements();
             bool validEntry = false;
 
             do
             {
+                DisplayGameTitle();
+                ShowGameChoices();
 
-                Console.Clear();
-                Console.WriteLine("It's time to play two truths and a lie!");
-                Console.WriteLine("=======================================\n");
-                Console.WriteLine("Of the following statements, select which one you believe is the lie.\n");
+                Console.Write($"\nChoose your option [1-{_AllStatements.Length}]");
 
-                for (int x = 0; x < allStatements.Length; x++)
-                {
-                    Console.WriteLine($"\t{x + 1}: {allStatements[x].Statement}");
-                }
+                string answer = Console.ReadLine();
 
-                Console.Write("\nChoose your option [1-3]");
-
-                var answer = Console.ReadLine();
-
-                if (int.TryParse(answer, out int result) && (result > 0 && result <= 3))
+                if (IsValidInput(answer, _AllStatements.Length, out int result))
                 {
                     validEntry = true;
-
-                    if (allStatements[result - 1].IsLie)
+                    if (_AllStatements[result - 1].IsLie)
                     {
                         Console.WriteLine("Congrats! You guessed correctly!");
-                        Console.WriteLine("\nPress any key to return to main menu.");
+                        Console.WriteLine("\nPress any key to return to continue.");
                         Console.ReadLine();
                     }
                     else
@@ -77,6 +68,35 @@ namespace ClassIntroApp
             {
                 throw ex;
             }
+        }
+
+        private static void DisplayGameTitle()
+        {
+            Console.Clear();
+            Console.WriteLine("It's time to play two truths and a lie!");
+            Console.WriteLine("=======================================\n");
+            Console.WriteLine("Of the following statements, select which one you believe is the lie.\n");
+        }
+
+        private static void ShowGameChoices()
+        {
+            for (int x = 0; x < _AllStatements.Length; x++)
+            {
+                Console.WriteLine($"\t{x + 1}: {_AllStatements[x].Statement}");
+            }
+        }
+
+        private static bool IsValidInput(string input, int maxRange, out int num)
+        {
+            num = -1;
+
+            if (int.TryParse(input, out int result) && (result > 0 && result <= maxRange))
+            {
+                num = result;
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿
 namespace ClassIntroApp
 {
-
     public class GameStatement
     {
         public string Statement { get; set; }
