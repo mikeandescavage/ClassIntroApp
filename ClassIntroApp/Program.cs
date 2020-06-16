@@ -2,13 +2,16 @@
 namespace ClassIntroApp
 {
     using System;
-    using System.Diagnostics;
     using System.IO;
     using System.Text.Json;
     using System.Threading;
 
     class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var jsonString = File.ReadAllText(".\\gamestatements.json");
@@ -22,6 +25,9 @@ namespace ClassIntroApp
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         static void ChoiceMenu()
         {
             bool returnToMenu = true;
@@ -47,7 +53,7 @@ namespace ClassIntroApp
                             break;
 
                         case 2:
-                            Console.WriteLine("Display ascii art");
+                            JohnnyBravo.DrawMe();
                             break;
 
                         case 3:
@@ -67,7 +73,6 @@ namespace ClassIntroApp
 
             } while (returnToMenu);
 
-            
         }
     }
 }
