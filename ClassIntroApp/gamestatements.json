@@ -12,5 +12,45 @@
   {
     "Statement": "I can speak three languages fluently.",
     "IsLie": true
+  },
+
+  {
+    "Statement": "Doom is my favorite game.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I have bungie jumped from the tallest bridge in the world.",
+    "IsLie": true
+  },
+
+  {
+    "Statement": "I graduated from Yale University.",
+    "IsLie": true
+  },
+
+  {
+    "Statement": "Blue is my favorite color.",
+    "IsLie": true
+  },
+
+  {
+    "Statement": "I originally wanted to be a doctor.",
+    "IsLie": true
+  },
+
+  {
+    "Statement": "My first job was working at a grocery store.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I've ridden my bike 204 miles in one day.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "Macs are the best computers ever.",
+    "IsLie": true
   }
 ]

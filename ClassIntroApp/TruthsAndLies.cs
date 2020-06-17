@@ -2,6 +2,7 @@
 namespace ClassIntroApp
 {
     using System;
+    using System.Linq;
     using System.IO;
     using System.Text.Json;
     using System.Threading;
@@ -27,16 +28,19 @@ namespace ClassIntroApp
             do
             {
                 DisplayGameTitle();
-                ShowGameChoices();
 
-                Console.Write($"\nChoose your option [1-{_AllStatements.Length}]");
+                // get three new statements each time!
+                GameStatement[] theThreeStatements = GetTwoTruthsAndALie();
+                ShowGameChoices(theThreeStatements);
+
+                Console.Write($"\nChoose your option [1-{theThreeStatements.Length}]");
 
                 string answer = Console.ReadLine();
 
-                if (IsValidInput(answer, _AllStatements.Length, out int result))
+                if (IsValidInput(answer, theThreeStatements.Length, out int result))
                 {
                     validEntry = true;
-                    if (_AllStatements[result - 1].IsLie)
+                    if (theThreeStatements[result - 1].IsLie)
                     {
                         Console.WriteLine("Congrats! You guessed correctly!");
                         Console.WriteLine("\nPress any key to return to continue.");
@@ -91,11 +95,11 @@ namespace ClassIntroApp
             Console.WriteLine("Of the following statements, select which one you believe is the lie.\n");
         }
 
-        private static void ShowGameChoices()
+        private static void ShowGameChoices(GameStatement[] choices)
         {
-            for (int x = 0; x < _AllStatements.Length; x++)
+            for (int x = 0; x < choices.Length; x++)
             {
-                Console.WriteLine($"\t{x + 1}: {_AllStatements[x].Statement}");
+                Console.WriteLine($"\t{x + 1}: {choices[x].Statement}");
             }
         }
 
@@ -110,6 +114,21 @@ namespace ClassIntroApp
             }
 
             return false;
+        }
+
+        private static GameStatement[] GetTwoTruthsAndALie()
+        {
+            Random random = new Random();
+
+            var allLies = _AllStatements.Where(x => x.IsLie == true);
+            var allTruths = _AllStatements.Where(x => x.IsLie == false);
+
+            var theLie = allLies.ElementAt(random.Next(0, allLies.Count()));
+            var truths = allTruths.OrderBy(x => random.Next()).ToArray();
+
+            GameStatement[] retVal = { theLie, truths[0], truths[1] };
+
+            return retVal.OrderBy(x => random.Next()).ToArray();
         }
 
         #endregion
