@@ -52,5 +52,41 @@
   {
     "Statement": "Macs are the best computers ever.",
     "IsLie": true
+  },
+
+  {
+    "Statement": "I am an only child.",
+    "IsLie": true
+  },
+
+  {
+    "Statement": "I have an older sibling.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "My favorite food is boxed mac and cheese with hotdogs.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I've been to 26 states.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I've been to 14 countries.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I've run a half marathon.",
+    "IsLie": false
+  },
+
+  {
+    "Statement": "I have run a full marathon.",
+    "IsLie": true
   }
+
 ]
